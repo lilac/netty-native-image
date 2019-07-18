@@ -17,12 +17,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
   <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>io.netty</groupId>
-    <artifactId>netty-parent</artifactId>
-    <version>4.1.37.Final-SNAPSHOT</version>
-  </parent>
 
+  <groupId>io.netty.example</groupId>
+  <version>4.1.37.Final-SNAPSHOT</version>
   <artifactId>netty-testsuite-native-image</artifactId>
   <packaging>jar</packaging>
 
@@ -30,33 +27,36 @@
 
   <properties>
     <skipJapicmp>true</skipJapicmp>
+    <graalvm.version>19.0.0</graalvm.version>
+    <netty.groupId>io.netty</netty.groupId>
+    <netty.version>4.1.37.Final-SNAPSHOT</netty.version>    
   </properties>
 
   <dependencies>
     <dependency>
-      <groupId>${project.groupId}</groupId>
+      <groupId>${netty.groupId}</groupId>
       <artifactId>netty-common</artifactId>
-      <version>${project.version}</version>
+      <version>${netty.version}</version>
     </dependency>
     <dependency>
-      <groupId>${project.groupId}</groupId>
+      <groupId>${netty.groupId}</groupId>
       <artifactId>netty-buffer</artifactId>
-      <version>${project.version}</version>
+      <version>${netty.version}</version>
     </dependency>
     <dependency>
-      <groupId>${project.groupId}</groupId>
+      <groupId>${netty.groupId}</groupId>
       <artifactId>netty-transport</artifactId>
-      <version>${project.version}</version>
+      <version>${netty.version}</version>
     </dependency>
     <dependency>
-      <groupId>${project.groupId}</groupId>
+      <groupId>${netty.groupId}</groupId>
       <artifactId>netty-handler</artifactId>
-      <version>${project.version}</version>
+      <version>${netty.version}</version>
     </dependency>
     <dependency>
-      <groupId>${project.groupId}</groupId>
+      <groupId>${netty.groupId}</groupId>
       <artifactId>netty-codec-http</artifactId>
-      <version>${project.version}</version>
+      <version>${netty.version}</version>
     </dependency>
 
   </dependencies>
@@ -90,7 +90,6 @@
           </execution>
         </executions>
         <configuration>
-          <skip>${skipNativeImageTestsuite}</skip>
           <imageName>${project.artifactId}</imageName>
           <mainClass>io.netty.testsuite.svm.HttpNativeServer</mainClass>
           <buildArgs>--report-unsupported-elements-at-runtime --allow-incomplete-classpath</buildArgs>
