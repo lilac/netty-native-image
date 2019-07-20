@@ -27,9 +27,9 @@
 
   <properties>
     <skipJapicmp>true</skipJapicmp>
-    <graalvm.version>19.0.0</graalvm.version>
+    <graalvm.version>19.1.1</graalvm.version>
     <netty.groupId>io.netty</netty.groupId>
-    <netty.version>4.1.37.Final-SNAPSHOT</netty.version>    
+    <netty.version>4.1.37.Final</netty.version>
   </properties>
 
   <dependencies>
